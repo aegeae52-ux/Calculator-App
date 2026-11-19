@@ -1,45 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator | CodeByGaurav</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الآلة الحاسبة</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculator">
-
-        <div class="display">0</div>
-
-        <!-- Buttons -->
-         <div class="buttons">
-            <button class="btn function" id="clear">AC</button>
-            <button class="btn function" id="del">DEL</button>
-            <button class="btn operator">%</button>
-            <button class="btn operator">/</button>
-
-            <button class="btn number">7</button>
-            <button class="btn number">8</button>
-            <button class="btn number">9</button>
-            <button class="btn operator">*</button>
-
-            <button class="btn number">4</button>
-            <button class="btn number">5</button>
-            <button class="btn number">6</button>
-            <button class="btn operator">-</button>
-
-            <button class="btn number">1</button>
-            <button class="btn number">2</button>
-            <button class="btn number">3</button>
-            <button class="btn operator">+</button>
-
-            <button class="btn number zero">0</button>
-            <button class="btn decimal">.</button>
-            <button class="btn equal">=</button>
-            
-         </div>
-
+  <div class="calculator">
+    <div class="top-bar">
+      <button id="themeToggle" class="icon-btn" onclick="toggleTheme()" title="تبديل الوضع">🌙</button>
+      <button class="icon-btn" onclick="toggleHistory()" title="سجل العمليات">🕘</button>
     </div>
+
+    <div id="historyPanel" class="history hidden">
+      <div class="history-header">
+        <span>سجل العمليات</span>
+        <button class="small-btn" onclick="clearHistory()">مسح السجل</button>
+      </div>
+      <ul id="historyList"></ul>
+    </div>
+
+    <input type="text" id="display" readonly>
+
+    <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button onclick="deleteLast()">⌫</button>
+      <button class="op" onclick="append('%')">%</button>
+      <button class="op" onclick="append('/')">÷</button>
+
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button class="op" onclick="append('*')">×</button>
+
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button class="op" onclick="append('-')">−</button>
+
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button class="op" onclick="append('+')">+</button>
+
+      <button onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+      <button class="equals wide" onclick="calculate()">=</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
